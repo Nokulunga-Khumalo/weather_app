@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#101827">
+    <meta name="description"
+          content="Search current weather conditions and a five-day forecast.">
+    <title>Weather App | Your Daily Forecast</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/app.js" defer></script>
+</head>
+<body>
+<header class="topbar">
+    <a class="brand" href="/" aria-label="Weather App home">
+        <span class="brand-icon" aria-hidden="true">☀</span>
+        <span>Weather<span class="brand-light">App</span></span>
+    </a>
+    <span class="live-label">
+        <span class="status-dot"></span>
+        LIVE WEATHER
+    </span>
+</header>
+
+<main class="container">
+    <section class="intro">
+        <p class="eyebrow">YOUR DAILY WEATHER GUIDE</p>
+        <h1>Weather, at a glance.</h1>
+        <p class="subtitle">
+            Discover current conditions and what's coming over the next
+            five days.
+        </p>
+    </section>
+
+    <form id="search-form" class="search-form">
+        <label class="sr-only" for="city-input">Enter a city</label>
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <input
+                id="city-input"
+                name="city"
+                type="search"
+                placeholder="Search a city, e.g. Johannesburg"
+                autocomplete="off"
+                maxlength="100"
+                required>
+        <button id="search-button" type="submit">Search</button>
+    </form>
+
+    <p id="message" class="message" role="status" aria-live="polite">
+        Search for a city to see its weather.
+    </p>
+
+    <section id="weather-content" class="weather-content" hidden>
+        <article class="current-card">
+            <div class="current-top">
+                <div>
+                    <p class="eyebrow">CURRENT WEATHER</p>
+                    <h2 id="city-name">--</h2>
+                    <p id="country-name" class="country-name"></p>
+                </div>
+                <span id="current-icon" class="weather-icon"
+                      aria-hidden="true">☀</span>
+            </div>
+
+            <div class="temperature-row">
+                <p id="current-temperature" class="temperature">--°</p>
+                <div>
+                    <p id="current-condition" class="condition">--</p>
+                    <p class="unit-label">Temperature in Celsius</p>
+                </div>
+            </div>
+
+            <div class="current-details">
+                <div class="detail-item">
+                    <span aria-hidden="true">💨</span>
+                    <div>
+                        <p class="detail-label">Wind speed</p>
+                        <p id="wind-speed" class="detail-value">-- km/h</p>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <span aria-hidden="true">🌧</span>
+                    <div>
+                        <p class="detail-label">Rain chance today</p>
+                        <p id="rain-chance" class="detail-value">--%</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <section class="forecast-section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">PLAN AHEAD</p>
+                    <h2>Five-day forecast</h2>
+                </div>
+                <span class="forecast-note">Next 5 days</span>
+            </div>
+            <div id="forecast-grid" class="forecast-grid"></div>
+        </section>
+    </section>
+
+    <footer class="footer">
+        <p>Weather data provided by
+            <a href="https://open-meteo.com/" target="_blank"
+               rel="noopener noreferrer">Open-Meteo</a>.
+        </p>
+        <p>Built with Java, Spring Boot, HTML, CSS and JavaScript.</p>
+    </footer>
+</main>
+</body>
+</html>
